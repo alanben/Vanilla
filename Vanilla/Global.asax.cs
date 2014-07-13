@@ -6,12 +6,13 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace Vanilla
-{
-	public class MvcApplication : System.Web.HttpApplication
-	{
-		protected void Application_Start()
-		{
+using myxsl.net.web.mvc;
+
+namespace Vanilla {
+	public class MvcApplication : System.Web.HttpApplication {
+		protected void Application_Start() {
+			ViewEngines.Engines.Add(new XsltViewEngine());
+
 			AreaRegistration.RegisterAllAreas();
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
